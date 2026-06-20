@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHM Hub Pro v9 - Mega Update Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 10px;
+            border: 1px solid #374151;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #00ff87, #60efff);
+        }
+
+        body {
+            background-color: #030712; 
+            color: #f3f4f6;
+            padding: 0 0 30px 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .announcement-banner {
+            background: linear-gradient(90deg, #a855f7, #6366f1, #00ff87);
+            color: #fff;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+            overflow: hidden;
+            position: relative;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-top: 60px;
+        }
+
+        header h1 {
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 25px rgba(0, 255, 135, 0.35));
+        }
+
+        header p {
+            color: #9ca3af;
+            font-size: 13.5px;
+            margin-top: 10px;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 22px 0 5px 0;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 11.5px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .social-btn:hover { transform: translateY(-3px); }
+        .btn-discord { color: #818cf8; border-color: rgba(129, 140, 248, 0.2); }
+        .btn-discord:hover { background: #5865F2; color: #fff; box-shadow: 0 8px 20px rgba(88, 101, 242, 0.35); }
+        .btn-whatsapp { color: #4ade80; border-color: rgba(74, 222, 128, 0.2); }
+        .btn-whatsapp:hover { background: #25D366; color: #fff; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); }
+        .btn-instagram { color: #f472b6; border-color: rgba(244, 114, 182, 0.2); }
+        .btn-instagram:hover { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); color: #fff; box-shadow: 0 8px 20px rgba(238, 42, 123, 0.35); }
+        .btn-tiktok { color: #fda4af; border-color: rgba(253, 164, 175, 0.2); }
+        .btn-tiktok:hover { background: #000; color: #fff; border-color: #fe2c55; box-shadow: 0 8px 20px rgba(254, 44, 85, 0.35); }
+        .btn-topup { color: #fb923c; border-color: rgba(251, 146, 60, 0.2); }
+        .btn-topup:hover { background: #ea580c; color: #fff; box-shadow: 0 8px 20px rgba(234, 88, 12, 0.35); }
+
+        .stats-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            align-items: center;
+        }
+
+        .stats {
+            background: rgba(0, 255, 135, 0.06);
+            color: #00ff87;
+            padding: 5px 16px;
+            border-radius: 30px;
+            font-size: 11.5px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 255, 135, 0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-view-btn {
+            background: rgba(96, 239, 255, 0.06);
+            color: #60efff;
+            border: 1px solid rgba(96, 239, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 11.5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .admin-login-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid #1e293b;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 12.5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .admin-login-btn:hover {
+            border-color: #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+        }
+
+        .main-navigation {
+            display: flex;
+            background-color: #0f172a;
+            padding: 6px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .nav-tab-btn {
+            flex: 1;
+            padding: 14px;
+            background: none;
+            border: none;
+            color: #6b7280;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-tab-btn.active {
+            background-color: #1e293b;
+            color: #00ff87;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-content-page { display: none; }
+        .tab-content-page.active { display: block; }
+
+        .card-form, .search-box, .feedback-box {
+            background: #0f172a;
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-form { display: none; border-left: 4px solid #a855f7; }
+
+        .form-section-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #a855f7;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .form-row > div { flex: 1; }
+
+        .backup-section {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #1e293b;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 12px;
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover { background-color: #334155; color: #fff; }
+
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            margin-top: 18px;
+        }
+        .filter-tags::-webkit-scrollbar { display: none; }
+
+        .filter-btn {
+            background-color: #030712;
+            color: #9ca3af;
+            border: 1px solid #1e293b;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+            color: #030712;
+            border-color: transparent;
+            box-shadow: 0 6px 15px rgba(0, 255, 135, 0.25);
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 14px;
+            background-color: #030712;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            color: #fff;
+            margin-bottom: 14px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #00ff87;
+            box-shadow: 0 0 12px rgba(0, 255, 135, 0.15);
+        }
+
+        .file-upload-wrapper {
+            background: #030712;
+            border: 1px dashed #1e293b;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .file-upload-wrapper label { font-size: 12px; color: #9ca3af; cursor: pointer; font-weight: 500; }
+
+        button.btn-primary {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+            color: #030712;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 255, 135, 0.25);
+            transition: transform 0.2s;
+        }
+
+        .search-box input {
+            margin-bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%239ca3af"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 16px center;
+            padding-left: 50px;
+        }
+
+        .text-item {
+            background-color: #0f172a;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .text-item.pinned {
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.08);
+        }
+
+        .pin-marker {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 14px;
+            z-index: 5;
+        }
+
+        .text-item:hover { 
+            border-color: rgba(0, 255, 135, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .item-banner-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #1e293b;
+            display: block;
+            background-color: #020617;
+        }
+
+        .item-header {
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(15, 23, 42, 0.4);
+        }
+
+        .item-title-wrapper { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+        
+        .badge-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .item-header h3 { color: #f3f4f6; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 6px;}
+        .header-actions { display: flex; align-items: center; gap: 10px; padding-left: 10px; }
+
+        .badge {
+            color: white; font-size: 9.5px; padding: 2px 8px; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .badge.ml { background-color: #b45309; }
+        .badge.ff { background-color: #b91c1c; }
+        .badge.roblox { background-color: #4b5563; }
+        .badge.gta-v { background-color: #047857; }
+        .badge.umum { background-color: #475569; }
+
+        .status-badge { font-size: 9.5px; padding: 2px 8px; border-radius: 6px; font-weight: bold; color: #fff;}
+        .status-safe { background-color: #16a34a; }
+        .status-maintenance { background-color: #ca8a04; }
+        .status-patched { background-color: #dc2626; }
+
+        .counter-badge { font-size: 10px; color: #9ca3af; background: #1e293b; padding: 2px 6px; border-radius: 4px; }
+
+        .quick-copy, .btn-custom-link, .share-btn {
+            background: #1e293b; border: 1px solid #334155; color: #00ff87; padding: 6px 12px; border-radius: 8px; font-size: 11.5px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-custom-link { color: #60efff; text-decoration: none; display: inline-block; text-align: center;}
+        .share-btn { color: #a855f7; background: transparent; border-color: rgba(168, 85, 247, 0.2); }
+
+        .like-btn {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; color: #9ca3af; padding: 6px 12px; border-radius: 8px; font-size: 11.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;
+        }
+        .like-btn.liked { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3); }
+
+        .preview-toggle-btn {
+            background: none; border: none; color: #6b7280; font-size: 12px; display: flex; align-items: center; gap: 4px; font-weight: 500; margin-top: 2px;
+        }
+
+        .arrow-icon { font-size: 11px; color: #4b5563; transition: transform 0.25s ease; }
+
+        .item-body { display: none; padding: 20px; border-top: 1px solid #1e293b; background-color: #090f1d; }
+        .item-body p {
+            color: #cbd5e1; font-size: 12.5px; white-space: pre-wrap; background: #030712; padding: 14px; border-radius: 10px; margin-bottom: 14px; border: 1px solid #1e293b; font-family: 'Courier New', Courier, monospace; overflow-x: auto;
+        }
+
+        .action-body-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .admin-action-cluster { display: flex; gap: 8px; }
+
+        .delete-btn, .edit-btn {
+            background-color: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .edit-btn { background-color: rgba(168, 85, 247, 0.1); color: #c084fc; border-color: rgba(168, 85, 247, 0.2); }
+        .delete-btn:hover { background-color: #dc2626; color: white; }
+        .edit-btn:hover { background-color: #a855f7; color: white; }
+
+        .text-item.active .item-body { display: block; }
+        .text-item.active .arrow-icon { transform: rotate(180deg); color: #00ff87; }
+
+        .feedback-box { border-left: 4px solid #f97316; }
+        .feedback-title { font-size: 17px; font-weight: 600; color: #f97316; margin-bottom: 6px; }
+        .feedback-desc { font-size: 12.5px; color: #9ca3af; margin-bottom: 20px; line-height: 1.6; }
+
+        .char-counter {
+            font-size: 11px; color: #4b5563; text-align: right; margin-top: -12px; margin-bottom: 16px; display: block;
+        }
+
+        .feedback-log-item {
+            background: #030712; padding: 14px; border: 1px solid #1e293b; border-radius: 10px; margin-bottom: 12px; font-size: 13px; position: relative;
+        }
+        .feedback-sender-info { display: flex; justify-content: space-between; font-size: 11.5px; margin-bottom: 8px; border-bottom: 1px dashed #1e293b; padding-bottom: 6px; }
+        .feedback-user { color: #f97316; font-weight: 600; }
+        .feedback-time { color: #6b7280; }
+        .fb-del-btn { position: absolute; bottom: 12px; right: 12px; background: none; border: none; color: #f87171; cursor: pointer; font-size: 12px; }
+
+        .no-result { text-align: center; color: #4b5563; margin-top: 40px; font-size: 14px; }
+
+        .toast-notification {
+            position: fixed;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f172a;
+            border: 1px solid #00ff87;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 15px 35px rgba(0, 255, 135, 0.2);
+            z-index: 9999;
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .toast-notification.show { bottom: 35px; }
+
+        .scroll-top-btn {
+            position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #00ff87 0%, #60efff 100%); color: #030712; width: 44px; height: 44px; border-radius: 50%; border: none; font-weight: bold; font-size: 16px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0, 255, 135, 0.35); z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div id="alertBanner" class="announcement-banner">
+    <div class="marquee-text" id="marqueeContent"></div>
+</div>
+
+<div class="container">
+    <header>
+        <h1 id="mainTitle">DHM Hub</h1>
+        <p id="greetingText">Memuat pesan selamat datang otomatis...</p>
+        
+        <div class="social-container" id="socialLinksContainer"></div>
+
+        <div class="stats-wrapper">
+            <div id="statsCounter" class="stats">0 Skrip Aktif</div>
+            <button class="toggle-view-btn" onclick="toggleImageBandwidth()">🖼️ Sembunyikan Gambar Cover</button>
+        </div>
+        <button id="loginBtn" class="admin-login-btn" onclick="toggleAdmin()">Mode: User</button>
+    </header>
+
+    <div class="main-navigation">
+        <button id="tabBtnScripts" class="nav-tab-btn active" onclick="switchTab('scripts')">📜 List Script Hub</button>
+        <button id="tabBtnFeedback" class="nav-tab-btn" onclick="switchTab('feedback')">💬 Kirim Pesan Feedback</button>
+    </div>
+
+    <!-- Admin Dashboard Form -->
+    <div id="adminForm" class="card-form">
+        <div class="form-section-title" id="formActionTitle">Tambah Skrip Hub Baru</div>
+        <input type="hidden" id="editScriptId" value="">
+        
+        <input type="text" id="textTitle" placeholder="Ketik Judul Database / Skrip Baru...">
+        
+        <div class="form-row">
+            <div>
+                <select id="textCategory">
+                    <option value="Roblox">Roblox</option>
+                    <option value="ML">ML (Mobile Legends)</option>
+                    <option value="FF">FF (Free Fire)</option>
+                    <option value="GTA V">GTA V</option>
+                    <option value="Umum">Umum / Lainnya</option>
+                </select>
+            </div>
+            <div>
+                <select id="textStatus">
+                    <option value="Safe">🟢 Status: Safe</option>
+                    <option value="Maintenance">🟡 Status: Maintenance</option>
+                    <option value="Patched">🔴 Status: Patched</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section-title" style="color: #60efff;">🖼️ Media Gambar Cover Script</div>
+        <input type="text" id="textImgUrl" placeholder="Masukkan Link URL Gambar/Foto (Opsional)...">
+        <div class="file-upload-wrapper">
+            <label for="textImgFile">Atau Upload Gambar langsung dari Perangkat :</label>
+            <input type="file" id="textImgFile" accept="image/*" onchange="prosesGambarFile(this)">
+        </div>
+        <input type="hidden" id="base64Storage">
+
+        <div class="form-section-title" style="color: #fb923c;">🔗 Link Tambahan / Download Kustom (Opsional)</div>
+        <div class="form-row">
+            <input type="text" id="textCustomLabel" placeholder="Nama Tombol (Contoh: Tonton Tutorial)">
+            <input type="text" id="textCustomUrl" placeholder="URL Tujuan Link (https://...)">
+        </div>
+
+        <div class="form-row" style="align-items: center; margin-bottom: 14px;">
+            <label style="font-size: 13px; color: #9ca3af; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                <input type="checkbox" id="textPin" style="width:16px; height:16px; accent-color:#00ff87;"> Sematkan di paling Atas (Pin ⭐)
+            </label>
+        </div>
+
+        <textarea id="textContent" rows="5" placeholder="Salin/Ketik script kode disini..."></textarea>
+        <button id="submitBtn" class="btn-primary" onclick="tambahTeks()" style="margin-bottom: 25px;">Kunci & Publikasikan Skrip</button>
+
+        <div class="form-section-title" style="border-top: 1px solid #1e293b; padding-top: 18px;">📢 Atur Teks Pengumuman Atas (Gunakan koma [ , ] untuk multi pesan)</div>
+        <input type="text" id="inputBannerText" placeholder="Pengumuman 1, Pengumuman 2..." oninput="simpanBannerTeks()">
+
+        <div class="form-section-title" style="margin-top: 10px;">Kelola Tautan Sosial Media Komunitas</div>
+        <input type="text" id="inputDiscord" placeholder="Link Discord Server" oninput="simpanSocialLinks()">
+        <input type="text" id="inputWhatsApp" placeholder="Link Saluran WhatsApp Group" oninput="simpanSocialLinks()">
+        <input type="text" id="inputInstagram" placeholder="Link Instagram Official" oninput="simpanSocialLinks()">
+        <input type="text" id="inputTiktok" placeholder="Link Akun Tiktok" oninput="simpanSocialLinks()">
+        <input type="text" id="inputTopUp" placeholder="Link Dukungan Saweria / Top Up" oninput="simpanSocialLinks()">
+
+        <div class="form-section-title" style="border-top: 1px solid #1e293b; padding-top: 18px; color: #f97316; display: flex; justify-content: space-between; align-items: center;">
+            <span>📥 Kotak Surat Masuk Feedback</span>
+            <div style="display: flex; gap: 6px;">
+                <button class="quick-copy" style="font-size: 10px; background:#030712;" onclick="salinSemuaFeedback()">Salin Semua</button>
+                <button class="quick-copy" style="font-size: 10px; background:#7f1d1d; color:#fca5a5; border-color:#991b1b;" onclick="bersihkanSemuaFeedback()">Purge All</button>
+            </div>
+        </div>
+        <input type="text" id="searchFeedbackInput" placeholder="Cari pesan atau nama user di feedback..." oninput="tampilkanFeedbackAdmin()" style="padding: 10px; font-size: 12px; margin-bottom: 10px;">
+        <div id="adminFeedbackLog"></div>
+
+        <div class="backup-section">
+            <button class="btn-secondary" onclick="eksporData()">📥 Ekspor Backup (.json)</button>
+            <button class="btn-secondary" onclick="document.getElementById('importFile').click()">📤 Impor Impor (.json)</button>
+            <input type="file" id="importFile" style="display:none" accept=".json" onchange="imporData(this)">
+        </div>
+    </div>
+
+    <!-- TAB 1: LIST SKRIP -->
+    <div id="pageScripts" class="tab-content-page active">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari skrip berdasarkan judul..." oninput="filterTeks()">
+            
+            <div class="filter-tags">
+                <button class="filter-btn active" onclick="setFilterCategory('Semua', this)">✨ Semua</button>
+                <button class="filter-btn" onclick="setFilterCategory('Roblox', this)">Roblox</button>
+                <button class="filter-btn" onclick="setFilterCategory('ML', this)">ML</button>
+                <button class="filter-btn" onclick="setFilterCategory('FF', this)">FF</button>
+                <button class="filter-btn" onclick="setFilterCategory('GTA V', this)">GTA V</button>
+                <button class="filter-btn" onclick="setFilterCategory('Umum', this)">Umum</button>
+            </div>
+        </div>
+        <div id="textContainer" class="text-list" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- TAB 2: FEEDBACK -->
+    <div id="pageFeedback" class="tab-content-page">
+        <div class="feedback-box" id="userFeedbackSection">
+            <div class="feedback-title">Kirim Masukan Pengguna 💬</div>
+            <div class="feedback-desc">Ada masalah bug script, link rusak atau mau request script game? Kirim langsung ke admin.</div>
+            
+            <input type="text" id="feedbackSender" placeholder="Masukkan Nama / Nickname kamu..." maxlength="30">
+            <textarea id="feedbackInput" rows="5" placeholder="Ketik masukan pesan kamu disini..." maxlength="300" oninput="updateCharCounter()"></textarea>
+            <span class="char-counter" id="charCountLabel">0 / 300 Karakter</span>
+            
+            <button class="btn-primary" onclick="kirimFeedback()" style="background: linear-gradient(135deg, #f97316 0%, #facc15 100%); color: #030712;">Kirim Pesan Ke Admin</button>
+        </div>
+    </div>
+</div>
+
+<div id="toastNotification" class="toast-notification">Berhasil disalin!</div>
+<button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">▲</button>
+
+<script>
+    const PASSWORD_ADMIN = "12345";
+    let isAdmin = false;
+    let hideImages = false;
+    let currentCategoryFilter = "Semua";
+    
+    let databaseTeks = JSON.parse(localStorage.getItem('dhmHubData')) || [];
+    let feedbackData = JSON.parse(localStorage.getItem('dhmHubFeedback')) || [];
+    let bannerText = localStorage.getItem('dhmHubBanner') || "";
+    let likedScripts = JSON.parse(localStorage.getItem('dhmHubLiked')) || [];
+    
+    let socialLinks = JSON.parse(localStorage.getItem('dhmHubSocial')) || {
+        discord: "https://discord.gg/6djaJ6K2Rk",
+        whatsapp: "https://whatsapp.com/channel/0029VbCB5Iz23n3gpRGvTM0V",
+        instagram: "https://www.instagram.com/pratama_zxhyu?igsh=MTVrZWtqOXFnMmYwaw==",
+        tiktok: "https://tiktok.com/@whatthismm",
+        topup: "https://saweria.co/Duduhyoi13/toko-top-up"
+    };
+
+    function showToast(message, isWarning = false) {
+        const toast = document.getElementById('toastNotification');
+        toast.innerText = message;
+        toast.style.borderColor = isWarning ? '#ef4444' : '#00ff87';
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2500);
+    }
+
+    function initGreeting() {
+        const jam = new Date().getHours();
+        let sapaan = "Halo semua";
+        if (jam >= 4 && jam < 11) sapaan = "🌅 Selamat Pagi";
+        else if (jam >= 11 && jam < 15) sapaan = "☀️ Selamat Siang";
+        else if (jam >= 15 && jam < 18) sapaan = "🌆 Selamat Sore";
+        else if (jam >= 18 || jam < 4) sapaan = "🌌 Selamat Malam";
+        
+        document.getElementById('greetingText').innerText = `${sapaan}! Selamat datang di DHM Hub. Cari, salin, dan pasang script game favorit Anda secara instan.`;
+    }
+
+    function toggleImageBandwidth() {
+        hideImages = !hideImages;
+        document.querySelector('.toggle-view-btn').innerText = hideImages ? "🖼️ Tampilkan Gambar Cover" : "🖼️ Sembunyikan Gambar Cover";
+        tampilkanData(databaseTeks);
+        showToast(hideImages ? "Gambar disembunyikan (Hemat Kuota)" : "Gambar diaktifkan kembali");
+    }
+
+    function updateCharCounter() {
+        const len = document.getElementById('feedbackInput').value.length;
+        document.getElementById('charCountLabel').innerText = `${len} / 300 Karakter`;
+    }
+
+    function switchTab(target) {
+        document.getElementById('tabBtnScripts').classList.remove('active');
+        document.getElementById('tabBtnFeedback').classList.remove('active');
+        document.getElementById('pageScripts').classList.remove('active');
+        document.getElementById('pageFeedback').classList.remove('active');
+        
+        if (target === 'scripts') {
+            document.getElementById('tabBtnScripts').classList.add('active');
+            document.getElementById('pageScripts').classList.add('active');
+        } else if (target === 'feedback') {
+            document.getElementById('tabBtnFeedback').classList.add('active');
+            document.getElementById('pageFeedback').classList.add('active');
+            updateCharCounter();
+        }
+    }
+
+    function toggleAdmin() {
+        if (!isAdmin) {
+            const pass = prompt("Masukkan Kunci Pengaman Otentikasi Admin:");
+            if (pass === PASSWORD_ADMIN) {
+                isAdmin = true;
+                document.getElementById('loginBtn').innerText = "🛡️ Keluar Admin";
+                document.getElementById('loginBtn').style.background = "#00ff87";
+                document.getElementById('loginBtn').style.color = "#030712";
+                document.getElementById('adminForm').style.display = "block";
+                document.getElementById('userFeedbackSection').style.display = "none";
+                
+                document.getElementById('inputDiscord').value = socialLinks.discord || '';
+                document.getElementById('inputWhatsApp').value = socialLinks.whatsapp || '';
+                document.getElementById('inputInstagram').value = socialLinks.instagram || '';
+                document.getElementById('inputTiktok').value = socialLinks.tiktok || '';
+                document.getElementById('inputTopUp').value = socialLinks.topup || '';
+                document.getElementById('inputBannerText').value = bannerText;
+
+                tampilkanData(databaseTeks);
+                tampilkanFeedbackAdmin();
+                showToast("Akses Terverifikasi! Mode Owner Aktif. 🔐");
+            } else if (pass !== null) {
+                showToast("Gagal: Kunci sandi salah!", true);
+            }
+        } else {
+            isAdmin = false;
+            batalEdit();
+            document.getElementById('loginBtn').innerText = "Mode: User";
+            document.getElementById('loginBtn').style.background = "#0f172a";
+            document.getElementById('loginBtn').style.color = "#e2e8f0";
+            document.getElementById('adminForm').style.display = "none";
+            document.getElementById('userFeedbackSection').style.display = "block";
+            tampilkanData(databaseTeks);
+            showToast("Mode administrator dinonaktifkan.");
+        }
+    }
+
+    function renderBanner() {
+        const banner = document.getElementById('alertBanner');
+        const content = document.getElementById('marqueeContent');
+        if (bannerText.trim() !== "") {
+            // Memisahkan pesan koma menjadi gabungan pemisah titik tebal
+            let gabunganPesan = bannerText.split(',').map(p => p.trim()).join('  •  ');
+            content.innerText = gabunganPesan + "  •  " + gabunganPesan;
+            banner.style.display = "block";
+        } else {
+            banner.style.display = "none";
+        }
+    }
+
+    function simpanBannerTeks() {
+        bannerText = document.getElementById('inputBannerText').value;
+        localStorage.setItem('dhmHubBanner', bannerText);
+        renderBanner();
+    }
+
+    function tampilkanSocialLinks() {
+        const container = document.getElementById('socialLinksContainer');
+        container.innerHTML = '';
+        if(socialLinks.discord) container.innerHTML += `<a href="${socialLinks.discord}" target="_blank" class="social-btn btn-discord">💬 Discord</a>`;
+        if(socialLinks.whatsapp) container.innerHTML += `<a href="${socialLinks.whatsapp}" target="_blank" class="social-btn btn-whatsapp">💚 Saluran WA</a>`;
+        if(socialLinks.instagram) container.innerHTML += `<a href="${socialLinks.instagram}" target="_blank" class="social-btn btn-instagram">📸 Instagram</a>`;
+        if(socialLinks.tiktok) container.innerHTML += `<a href="${socialLinks.tiktok}" target="_blank" class="social-btn btn-tiktok">🎵 TikTok</a>`;
+        if(socialLinks.topup) container.innerHTML += `<a href="${socialLinks.topup}" target="_blank" class="social-btn btn-topup">🛒 Top Up</a>`;
+    }
+
+    function simpanSocialLinks() {
+        socialLinks.discord = document.getElementById('inputDiscord').value;
+        socialLinks.whatsapp = document.getElementById('inputWhatsApp').value;
+        socialLinks.instagram = document.getElementById('inputInstagram').value;
+        socialLinks.tiktok = document.getElementById('inputTiktok').value;
+        socialLinks.topup = document.getElementById('inputTopUp').value;
+        localStorage.setItem('dhmHubSocial', JSON.stringify(socialLinks));
+        tampilkanSocialLinks();
+    }
+
+    function prosesGambarFile(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('base64Storage').value = e.target.result;
+                showToast("📸 Gambar berhasil diproses masuk memori!");
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function kirimFeedback() {
+        const fSender = document.getElementById('feedbackSender');
+        const fInput = document.getElementById('feedbackInput');
+        if (fInput.value.trim() === "") {
+            showToast("Gagal: Kolom pesan masih kosong!", true);
+            return;
+        }
+
+        const namaFinal = fSender.value.trim() !== "" ? fSender.value.trim() : "Anonim";
+        const waktu = new Date().toLocaleString('id-ID');
+        
+        feedbackData.unshift({ sender: namaFinal, time: waktu, text: fInput.value });
+        localStorage.setItem('dhmHubFeedback', JSON.stringify(feedbackData));
+
+        fSender.value = ""; fInput.value = "";
+        showToast("Feedback dikirim sukses! 👍");
+        switchTab('scripts');
+    }
+
+    function tampilkanFeedbackAdmin() {
+        const logContainer = document.getElementById('adminFeedbackLog');
+        const searchKeyword = document.getElementById('searchFeedbackInput').value.toLowerCase();
+        logContainer.innerHTML = "";
+        
+        let filteredFeedback = feedbackData.filter(fb => 
+            fb.sender.toLowerCase().includes(searchKeyword) || fb.text.toLowerCase().includes(searchKeyword)
+        );
+
+        if (filteredFeedback.length === 0) {
+            logContainer.innerHTML = "<p style='color: #4b5563; font-size: 12px; text-align: center; padding: 10px;'>Tidak ada feedback cocok.</p>";
+            return;
+        }
+        filteredFeedback.forEach((fb, index) => {
+            logContainer.innerHTML += `
+                <div class="feedback-log-item">
+                    <div class="feedback-sender-info">
+                        <span class="feedback-user">👤 ${fb.sender}</span>
+                        <span class="feedback-time">📅 ${fb.time}</span>
+                    </div>
+                    <div style="color: #cbd5e1; word-break: break-word; padding-right: 25px; line-height: 1.5;">${fb.text}</div>
+                    <button class="fb-del-btn" onclick="hapusFeedback(${index})">❌</button>
+                </div>
+            `;
+        });
+    }
+
+    function salinSemuaFeedback() {
+        if(feedbackData.length === 0) return showToast("Kotak masuk kosong!", true);
+        let rekap = feedbackData.map(f => `[${f.time}] ${f.sender}: ${f.text}`).join('\n');
+        navigator.clipboard.writeText(rekap);
+        showToast("Semua teks feedback disalin ke clipboard!");
+    }
+
+    function bersihkanSemuaFeedback() {
+        if(confirm("Kosongkan total seluruh log feedback user di mesin lokal?")) {
+            feedbackData = [];
+            localStorage.setItem('dhmHubFeedback', JSON.stringify(feedbackData));
+            tampilkanFeedbackAdmin();
+            showToast("Database feedback dibersihkan!");
+        }
+    }
+
+    function hapusFeedback(index) {
+        if (confirm("Hapus data laporan masuk ini?")) {
+            feedbackData.splice(index, 1);
+            localStorage.setItem('dhmHubFeedback', JSON.stringify(feedbackData));
+            tampilkanFeedbackAdmin();
+            showToast("Log feedback dihapus.");
+        }
+    }
+
+    function setFilterCategory(category, buttonElement) {
+        currentCategoryFilter = category;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        buttonElement.classList.add('active');
+        
+        // Animasi Simulasi Skeleton Loader Ringan
+        const container = document.getElementById('textContainer');
+        container.style.opacity = "0.3";
+        setTimeout(() => {
+            filterTeks();
+            container.style.opacity = "1";
+        }, 150);
+    }
+
+    function toggleLike(id, element, event) {
+        if(event) event.stopPropagation();
+        let targetScript = databaseTeks.find(item => item.id === id);
+        if(!targetScript) return;
+
+        if (likedScripts.includes(id)) {
+            likedScripts = likedScripts.filter(i => i !== id);
+            targetScript.likes = Math.max(0, (targetScript.likes || 0) - 1);
+            element.classList.remove('liked');
+        } else {
+            likedScripts.push(id);
+            targetScript.likes = (targetScript.likes || 0) + 1;
+            element.classList.add('liked');
+        }
+        
+        element.innerHTML = `❤️ ${targetScript.likes}`;
+        localStorage.setItem('dhmHubLiked', JSON.stringify(likedScripts));
+        localStorage.setItem('dhmHubData', JSON.stringify(databaseTeks));
+    }
+
+    function bagikanScript(id, title, event) {
+        if(event) event.stopPropagation();
+        // Mock share link statis memakai ID hash referensi halaman browser
+        let linkShare = window.location.origin + window.location.pathname + "#script-" + id;
+        navigator.clipboard.writeText(linkShare);
+        showToast(`Tautan link untuk script "${title}" disalin!`);
+    }
+
+    function tampilkanData(dataArray) {
+        const container = document.getElementById('textContainer');
+        container.innerHTML = '';
+        document.getElementById('statsCounter').innerText = `${databaseTeks.length} Skrip Aktif`;
+
+        if (dataArray.length === 0) {
+            container.innerHTML = '<p class="no-result">Tidak ditemukan skrip hub.</p>';
+            return;
+        }
+
+        const sortedData = [...dataArray].sort((a, b) => (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0));
+
+        sortedData.forEach((item) => {
+            const originalIndex = databaseTeks.findIndex(x => x.id === item.id);
+            const itemElement = document.createElement('div');
+            itemElement.className = `text-item ${item.isPinned ? 'pinned' : ''}`;
+            itemElement.id = `script-${item.id}`;
+            
+            const categoryClass = (item.category || 'umum').toLowerCase().replace(' ', '-');
+            const statusClass = (item.status || 'Safe').toLowerCase();
+            const miniPreview = item.content.length > 35 ? item.content.substring(0, 35) + "..." : item.content;
+            const isLiked = likedScripts.includes(item.id) ? 'liked' : '';
+
+            let imageTag = "";
+            if (!hideImages && item.image && item.image.trim() !== "") {
+                imageTag = `<img src="${item.image}" class="item-banner-img" alt="Cover" onerror="this.style.display='none'">`;
+            }
+
+            let customLinkTag = "";
+            if (item.customUrl && item.customUrl.trim() !== "") {
+                customLinkTag = `<a href="${item.customUrl}" target="_blank" class="btn-custom-link" onclick="event.stopPropagation();">🔗 ${item.customLabel || 'Tautan Eksternal'}</a>`;
+            }
+
+            itemElement.innerHTML = `
+                ${item.isPinned ? '<span class="pin-marker">⭐</span>' : ''}
+                ${imageTag}
+                <div class="item-header">
+                    <div class="item-title-wrapper" onclick="toggleAccordion(this)">
+                        <div class="badge-row">
+                            <span class="badge ${categoryClass}">${item.category || 'Umum'}</span>
+                            <span class="status-badge status-${statusClass}">${item.status || 'Safe'}</span>
+                            <span class="counter-badge">📋 Dicopy: ${item.copies || 0}x</span>
+                        </div>
+                        <h3>${item.title}</h3>
+                        <span style="font-size: 10px; color:#6b7280;">📅 Update: ${item.date || 'Baru rilis'}</span>
+                        <span class="preview-toggle-btn" id="prevBtn-${originalIndex}">👁️ Intip: <code style="color: #94a3b8; font-family: monospace; font-size:10px;">${miniPreview}</code></span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="like-btn ${isLiked}" onclick="toggleLike(${item.id}, this, event)">❤️ ${item.likes || 0}</button>
+                        <button class="share-btn" onclick="bagikanScript(${item.id}, '${item.title}', event)">📤</button>
+                        <button class="quick-copy" onclick="salinTeks(${originalIndex}, this, event)">Salin</button>
+                        <span class="arrow-icon" onclick="toggleAccordion(this)">▼</span>
+                    </div>
+                </div>
+                <div class="item-body">
+                    <p id="content-${originalIndex}">${item.content}</p>
+                    <div class="action-body-panel">
+                        <div>${customLinkTag}</div>
+                        <div class="admin-action-cluster">
+                            <button class="edit-btn" id="edit-${originalIndex}" style="display:none;" onclick="pemicuEditScript(${originalIndex})">✏️ Edit</button>
+                            <button class="delete-btn" id="del-${originalIndex}" style="display:none;" onclick="hapusTeks(${originalIndex})">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(itemElement);
+            if (isAdmin) {
+                document.getElementById(`del-${originalIndex}`).style.display = 'block';
+                document.getElementById(`edit-${originalIndex}`).style.display = 'block';
+            }
+        });
+    }
+
+    function toggleAccordion(element) {
+        const parent = element.closest('.text-item');
+        parent.classList.toggle('active');
+    }
+
+    function salinTeks(index, buttonElement, event) {
+        if(event) event.stopPropagation();
+        const textToCopy = document.getElementById(`content-${index}`).innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            
+            // Tambah kalkulasi jumlah copy sistem
+            databaseTeks[index].copies = (databaseTeks[index].copies || 0) + 1;
+            localStorage.setItem('dhmHubData', JSON.stringify(databaseTeks));
+            
+            buttonElement.innerText = "✓ Tersalin";
+            buttonElement.style.color = "#030712";
+            buttonElement.style.backgroundColor = "#00ff87";
+            showToast("📋 Script Berhasil Disalin!");
+            
+            setTimeout(() => {
+                buttonElement.innerText = "Salin";
+                buttonElement.style.color = "#00ff87";
+                buttonElement.style.backgroundColor = "#1e293b";
+                tampilkanData(databaseTeks);
+            }, 1500);
+        });
+    }
+
+    function pemicuEditScript(index) {
+        const script = databaseTeks[index];
+        document.getElementById('editScriptId').value = script.id;
+        document.getElementById('textTitle').value = script.title;
+        document.getElementById('textCategory').value = script.category;
+        document.getElementById('textStatus').value = script.status;
+        document.getElementById('textImgUrl').value = script.image.startsWith("data:") ? "" : script.image;
+        document.getElementById('base64Storage').value = script.image.startsWith("data:") ? script.image : "";
+        document.getElementById('textCustomLabel').value = script.customLabel || "";
+        document.getElementById('textCustomUrl').value = script.customUrl || "";
+        document.getElementById('textPin').checked = script.isPinned || false;
+        document.getElementById('textContent').value = script.content;
+
+        document.getElementById('formActionTitle').innerText = "✏️ Mode Edit Script (ID: " + script.id + ")";
+        document.getElementById('submitBtn').innerText = "Simpan Perubahan Data";
+        document.getElementById('submitBtn').style.background = "linear-gradient(135deg, #c084fc 0%, #a855f7 100%)";
+        window.scrollTo({ top: document.getElementById('adminForm').offsetTop, behavior: 'smooth' });
+    }
+
+    function batalEdit() {
+        document.getElementById('editScriptId').value = "";
+        document.getElementById('textTitle').value = "";
+        document.getElementById('textImgUrl').value = "";
+        document.getElementById('base64Storage').value = "";
+        document.getElementById('textCustomLabel').value = "";
+        document.getElementById('textCustomUrl').value = "";
+        document.getElementById('textPin').checked = false;
+        document.getElementById('textContent').value = "";
+        document.getElementById('formActionTitle').innerText = "Tambah Skrip Hub Baru";
+        document.getElementById('submitBtn').innerText = "Kunci & Publikasikan Skrip";
+        document.getElementById('submitBtn').style.background = "linear-gradient(135deg, #00ff87 0%, #60efff 100%)";
+    }
+
+    function tambahTeks() {
+        if (!isAdmin) return;
+        const editId = document.getElementById('editScriptId').value;
+        const titleInput = document.getElementById('textTitle');
+        const categoryInput = document.getElementById('textCategory');
+        const statusInput = document.getElementById('textStatus');
+        const imgUrlInput = document.getElementById('textImgUrl');
+        const base64Input = document.getElementById('base64Storage');
+        const customLabelInput = document.getElementById('textCustomLabel');
+        const customUrlInput = document.getElementById('textCustomUrl');
+        const pinInput = document.getElementById('textPin');
+        const contentInput = document.getElementById('textContent');
+
+        if (titleInput.value.trim() === '' || contentInput.value.trim() === '') {
+            showToast("Error: Form judul dan kode tidak boleh kosong!", true);
+            return;
+        }
+
+        let finalImage = base64Input.value.trim() !== "" ? base64Input.value : imgUrlInput.value.trim();
+        const waktuSekarang = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'short', year:'numeric'}) + " " + new Date().toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'});
+
+        if (editId !== "") {
+            // Logika Update data lama yang sudah ada di database
+            let index = databaseTeks.findIndex(x => x.id == editId);
+            if(index !== -1) {
+                databaseTeks[index].title = titleInput.value;
+                databaseTeks[index].category = categoryInput.value;
+                databaseTeks[index].status = statusInput.value;
+                databaseTeks[index].image = finalImage;
+                databaseTeks[index].customLabel = customLabelInput.value;
+                databaseTeks[index].customUrl = customUrlInput.value;
+                databaseTeks[index].isPinned = pinInput.checked;
+                databaseTeks[index].content = contentInput.value;
+                databaseTeks[index].date = waktuSekarang + " (Edited)";
+            }
+            showToast("Script berhasil diperbarui!");
+            batalEdit();
+        } else {
+            // Buat skrip data baru gres
+            const newScript = {
+                id: Date.now(),
+                title: titleInput.value,
+                category: categoryInput.value,
+                status: statusInput.value,
+                image: finalImage,
+                customLabel: customLabelInput.value,
+                customUrl: customUrlInput.value,
+                isPinned: pinInput.checked,
+                content: contentInput.value,
+                likes: 0,
+                copies: 0,
+                date: waktuSekarang
+            };
+            databaseTeks.unshift(newScript);
+            showToast("🚀 Script Hub Berhasil Dipublikasikan!");
+            batalEdit();
+        }
+
+        localStorage.setItem('dhmHubData', JSON.stringify(databaseTeks));
+        document.getElementById('textImgFile').value = '';
+        tampilkanData(databaseTeks);
+    }
+
+    function filterTeks() {
+        const keyword = document.getElementById('searchInput').value.toLowerCase();
+        const hasilFilter = databaseTeks.filter(item => {
+            const matchKeyword = item.title.toLowerCase().includes(keyword) || item.content.toLowerCase().includes(keyword);
+            const matchCategory = (currentCategoryFilter === "Semua") || (item.category && item.category.toLowerCase() === currentCategoryFilter.toLowerCase());
+            return matchKeyword && matchCategory;
+        });
+        tampilkanData(hasilFilter);
+    }
+
+    function hapusTeks(index) {
+        if (!isAdmin) return;
+        if (confirm('Hapus skrip game ini secara permanen dari database?')) {
+            databaseTeks.splice(index, 1);
+            localStorage.setItem('dhmHubData', JSON.stringify(databaseTeks));
+            batalEdit();
+            filterTeks();
+            showToast("Skrip berhasil dihapus.");
+        }
+    }
+
+    function eksporData() {
+        if (databaseTeks.length === 0) return showToast("Data kosong, ekspor batal!", true);
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ skrip: databaseTeks, feedback: feedbackData }));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", "dhm_hub_v9_ultimate.json");
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click(); downloadAnchor.remove();
+        showToast("📦 Berkas data cadangan (.json) terunduh!");
+    }
+
+    function imporData(input) {
+        const file = input.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const importedJson = JSON.parse(e.target.result);
+                let importedScripts = importedJson.skrip || [];
+                if (importedJson.feedback) feedbackData = [...importedJson.feedback, ...feedbackData];
+
+                if (importedScripts.length > 0) {
+                    databaseTeks = [...importedScripts, ...databaseTeks];
+                    databaseTeks = databaseTeks.filter((v,i,a)=>a.findIndex(v2=>(v2.id===v.id))===i);
+                    localStorage.setItem('dhmHubData', JSON.stringify(databaseTeks));
+                    localStorage.setItem('dhmHubFeedback', JSON.stringify(feedbackData));
+                    tampilkanData(databaseTeks);
+                    if (isAdmin) tampilkanFeedbackAdmin();
+                    showToast("Sinkronisasi data sukses! 🎉");
+                }
+            } catch (err) { showToast("Error: File JSON rusak / tidak sah.", true); }
+        };
+        reader.readAsText(file);
+    }
+
+    window.onscroll = function() {
+        const btn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { btn.style.display = "flex"; } 
+        else { btn.style.display = "none"; }
+    };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    initGreeting();
+    renderBanner();
+    tampilkanSocialLinks();
+    tampilkanData(databaseTeks);
+</script>
+</body>
+</html>
